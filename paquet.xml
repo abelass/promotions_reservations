@@ -6,20 +6,23 @@
 	compatibilite="[3.2.1;3.2.*]"
 	logo="prive/themes/spip/images/promotions_reservations-64.png"
 	documentation=""
-	schema="1.0.0" 
+	schema="1.0.0"
 >
 	<!--
 		Paquet généré le 2018-04-19 11:25:14
-		(Vous pouvez bien entendu supprimer ces commentaires) 
+		(Vous pouvez bien entendu supprimer ces commentaires)
 	-->
 
 	<nom>Promotions Réservations</nom>
 	<!-- Des promotions pour les réservations -->
 
-	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
-	<auteur>Rainer Müller</auteur>
+	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs -->
+	<auteur lien='https://websimple.be'>Rainer Müller</auteur>
 
 	<licence>GNU/GPL</licence>
+
+	<necessite nom="promotions" compatibilite="[1.8.0;]" />
+	<necessite nom="reservation_evenement" compatibilite="[1.28.3;]" />
 
 	<!--
 		Exemple de commandes
@@ -30,17 +33,17 @@
 		* pipelines
 		<pipeline nom="autoriser" inclure="promotions_reservations_autorisations.php" />
 		<pipeline nom="insert_head" inclure="promotions_reservations_pipelines.php" />
-		* declarer un pipeline 
+		* declarer un pipeline
 		<pipeline nom="mon_pipeline" action="" />
 		* parents de menus de SPIP :
 				menu_accueil (à éviter), menu_edition, menu_publication,
-				menu_activite, menu_squelette, menu_administration, menu_configuration 
+				menu_activite, menu_squelette, menu_administration, menu_configuration
 		<menu nom="promotions_reservations" titre="promotions_reservations:promotions_reservations_titre" parent="menu_edition"  icone="images/promotions_reservations-16.png" />
-		* parents d'onglets... configuration, plugins, statistiques, ... 
+		* parents d'onglets... configuration, plugins, statistiques, ...
 		<onglet nom="promotions_reservations" titre="promotions_reservations:promotions_reservations_titre" parent="configuration" icone="images/promotions_reservations-24.png" />
 	-->
 
-
+	<pipeline nom="reservation_evenement_donnees_details" inclure="promotions_reservations_pipelines.php" />
 
 
 </paquet>
