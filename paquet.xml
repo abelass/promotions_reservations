@@ -1,0 +1,46 @@
+<paquet
+	prefix="promotions_reservations"
+	categorie="communication"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.2.1;3.2.*]"
+	logo="prive/themes/spip/images/promotions_reservations-64.png"
+	documentation=""
+	schema="1.0.0" 
+>
+	<!--
+		Paquet généré le 2018-04-19 11:25:14
+		(Vous pouvez bien entendu supprimer ces commentaires) 
+	-->
+
+	<nom>Promotions Réservations</nom>
+	<!-- Des promotions pour les réservations -->
+
+	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
+	<auteur>Rainer Müller</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<!--
+		Exemple de commandes
+		* dependances
+		<necessite nom="saisies" compatibilite="[2.4.0;]" />
+		<utilise nom="saisies" compatibilite="[2.4.0;]" />
+		<lib nom="simplehtmldom" lien="http://chemin_vers_archive.zip" />
+		* pipelines
+		<pipeline nom="autoriser" inclure="promotions_reservations_autorisations.php" />
+		<pipeline nom="insert_head" inclure="promotions_reservations_pipelines.php" />
+		* declarer un pipeline 
+		<pipeline nom="mon_pipeline" action="" />
+		* parents de menus de SPIP :
+				menu_accueil (à éviter), menu_edition, menu_publication,
+				menu_activite, menu_squelette, menu_administration, menu_configuration 
+		<menu nom="promotions_reservations" titre="promotions_reservations:promotions_reservations_titre" parent="menu_edition"  icone="images/promotions_reservations-16.png" />
+		* parents d'onglets... configuration, plugins, statistiques, ... 
+		<onglet nom="promotions_reservations" titre="promotions_reservations:promotions_reservations_titre" parent="configuration" icone="images/promotions_reservations-24.png" />
+	-->
+
+
+
+
+</paquet>
