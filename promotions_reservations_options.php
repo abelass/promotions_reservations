@@ -13,5 +13,5 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-// Ajoute le plugin aux promotions.
+// Ajoute le plugin reservation événements aux promotions.
 $GLOBALS['promotion_plugin']['reservation_evenement'] = _T('reservation_evenement:reservation_evenement_titre');
