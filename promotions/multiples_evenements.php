@@ -2,7 +2,7 @@
 if (! defined("_ECRIRE_INC_VERSION"))
 	return;
 
-	// Définition des champs pour le détail du formulaire promotion du plugin promotions (https://github.com/abelass/promotions)
+// Définition des champs pour le détail du formulaire promotion du plugin promotions (https://github.com/abelass/promotions)
 function promotions_multiples_evenements_dist($flux = array()) {
 	$date = date('Y-m-d H:i:s');
 	$objet_promotion = _request('objet_promotion') ? _request('objet_promotion') : (isset($flux['valeurs_promotion']['objet_promotion']) ? $flux['valeurs_promotion']['objet_promotion'] : '');
