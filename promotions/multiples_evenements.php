@@ -156,13 +156,13 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 
 				$flux['data']['donnees_evenements'] = array();
 				while ($data = sql_fetch($sql)) {
-					$i = verifier($data, $id_objet, $i, $flux['data']['id_evenement']);
+					$i = promotions_multiples_evenements_verifier($data, $id_objet, $i, $flux['data']['id_evenement']);
 					$flux['data']['donnees_evenements'][] = $data;
 				}
 			}
 			else {
 				foreach ($flux['data']['donnees_evenements'] as $data) {
-					$i = verifier($data, $id_objet, $i, $flux['data']['id_evenement']);
+					$i = promotions_multiples_evenements_verifier($data, $id_objet, $i, $flux['data']['id_evenement']);
 				}
 			}
 		}
@@ -175,7 +175,7 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 
 	return $flux;
 }
-function verifier($data, $id_objet, $i, $id_evenement) {
+function promotions_multiples_evenements_verifier($data, $id_objet, $i, $id_evenement) {
 	$id_article = $data['id_article'];
 	if ($data['id_trad'] > 0)
 		$id_article = $data['id_trad'];
