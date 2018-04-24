@@ -3,9 +3,15 @@ if (!defined("_ECRIRE_INC_VERSION"))
 	return;
 
 // Définition des champs pour le détail du formulaire promotion du plugin promotions (https://github.com/abelass/promotions)
-function promotions_multiples_evenements_dist($flux = array()) {
+function promotions_multiples_evenements_dist($flux) {
+
+	if (is_string($flux)) {
+		$flux = unserialize($flux);
+	}
+
 	$date = date('Y-m-d H:i:s');
-	$objet_promotion = _request('objet_promotion') ? _request('objet_promotion') : (isset($flux['valeurs_promotion']['objet_promotion']) ? $flux['valeurs_promotion']['objet_promotion'] : '');
+	$objet_promotion = _request('objet_promotion') ?
+		_request('objet_promotion') : (isset($flux['_valeurs_promotion']['objet_promotion']) ? $flux['_valeurs_promotion']['objet_promotion'] : '');
 	$objets = array();
 
 	// Déterminer les objets à assembler
@@ -175,6 +181,15 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 
 	return $flux;
 }
+
+/**
+ * @param array $data
+ * @param integer $id_objet
+ * @param integer $i
+ * @param integer $id_evenement
+ *
+ * @return integer
+ */
 function promotions_multiples_evenements_verifier($data, $id_objet, $i, $id_evenement) {
 	$id_article = $data['id_article'];
 	if ($data['id_trad'] > 0)

@@ -1,7 +1,7 @@
 <paquet
 	prefix="promotions_reservations"
 	categorie="communication"
-	version="1.0.0"
+	version="1.0.1"
 	etat="test"
 	compatibilite="[3.0.17;3.2.*]"
 	logo="prive/themes/spip/images/promotions_reservations-64.png"
@@ -21,7 +21,7 @@
 
 	<licence>GNU/GPL</licence>
 
-	<necessite nom="promotions" compatibilite="[1.8.0;]" />
+	<necessite nom="promotions" compatibilite="[1.8.2;]" />
 	<necessite nom="reservation_evenement" compatibilite="[1.28.3;]" />
 
 	<!--
