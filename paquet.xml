@@ -6,7 +6,7 @@
 	compatibilite="[3.0.17;3.2.*]"
 	logo="prive/themes/spip/images/promotions_reservations-64.png"
 	documentation=""
-	schema="1.0.0"
+	schema="1.0.1"
 >
 
 	<nom>Promotions Réservations</nom>
@@ -20,8 +20,7 @@
 	<necessite nom="promotions" compatibilite="[1.8.2;]" />
 	<necessite nom="reservation_evenement" compatibilite="[1.28.3;]" />
 
-
 	<pipeline nom="reservation_evenement_donnees_details" inclure="promotions_reservations_pipelines.php" />
-
+	<pipeline nom="declarer_champs_extras" inclure="base/promotions_reservations.php" />
 
 </paquet>
