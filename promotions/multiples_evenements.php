@@ -4,11 +4,6 @@ if (!defined("_ECRIRE_INC_VERSION"))
 
 // Définition des champs pour le détail du formulaire promotion du plugin promotions (https://github.com/abelass/promotions)
 function promotions_multiples_evenements_dist($flux) {
-
-	if (is_string($flux)) {
-		$flux = unserialize($flux);
-	}
-
 	$date = date('Y-m-d H:i:s');
 	$objet_promotion = _request('objet_promotion') ?
 		_request('objet_promotion') : (isset($flux['_valeurs_promotion']['objet_promotion']) ? $flux['_valeurs_promotion']['objet_promotion'] : '');
@@ -56,7 +51,7 @@ function promotions_multiples_evenements_dist($flux) {
 				'saisie' => 'radio',
 				'options' => array(
 					'nom' => 'type_selection',
-					'datas' => array(
+					'data' => array(
 						'simple' => _T('reservation:simple'),
 						'choix_precis' => _T('reservation:choix_precis')
 					),
@@ -79,13 +74,12 @@ function promotions_multiples_evenements_dist($flux) {
 				'saisie' => 'selection',
 				'options' => array(
 					'nom' => 'objet_promotion',
-					'datas' => array(
+					'data' => array(
 						'article' => _T('public:article'),
 						'evenement' => _T('agenda:info_evenement')
 					),
 					'label' => _T('reservation:label_objet_promotion'),
 					'explication' => _T('reservation:explication_objet_promotion'),
-					'class' => 'auto_submit',
 					'obligatoire' => 'oui',
 					'afficher_si' => '@type_selection@=="choix_precis"'
 				)
