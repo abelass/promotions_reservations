@@ -126,7 +126,7 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 	$type_selection = $valeurs_promotion['type_selection'];
 	$nombre_evenements = isset($valeurs_promotion['nombre_evenements']) ? $valeurs_promotion['nombre_evenements'] : '';
 	$objet_promotion = isset($valeurs_promotion['objet_promotion']) ? $valeurs_promotion['objet_promotion'] : '';
-	$id_objet = isset($valeurs_promotion['id_objet']) ? $valeurs_promotion['id_objet'] : '';
+	$id_objet = isset($valeurs_promotion['id_objet']) ? $valeurs_promotion['id_objet'] : array();
 	$nombre_evenements_choix = isset($valeurs_promotion['nombre_evenements_choix']) ? $valeurs_promotion['nombre_evenements_choix'] : '';
 
 	// promotion simple
