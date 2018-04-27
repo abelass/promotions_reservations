@@ -139,9 +139,10 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 		// Le nombre de conicidence requise
 		// Par défaut le nombre de objets sélecctionnes
 		$nombre_requis = count($id_objet);
-		// Si un nombre spécifique est indiqué, on le prend
 
+		// Si un nombre spécifique est indiqué, on le prend
 		$i = 0;
+
 		// Choix d'événements
 		if ($objet_promotion == 'evenement') {
 			foreach ($evenements as $id_evenement) {
@@ -149,6 +150,7 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 					$i++;
 			}
 		}
+
 		// Choix d'article
 		elseif ($objet_promotion == 'article') {
 			if (!isset($flux['data']['donnees_evenements'])) {
@@ -197,4 +199,3 @@ function promotions_multiples_evenements_verifier($data, $id_objet, $i, $id_even
 	return $i;
 }
 
-?>
