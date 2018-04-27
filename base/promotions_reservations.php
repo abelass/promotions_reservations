@@ -23,7 +23,7 @@ function promotions_reservations_declarer_champs_extras($champs = array()) {
 	include_spip('inc/promotion');
 
 	if (function_exists('promotion_code_simple_actif_plugin') and
-		promotion_code_simple_actif_plugin('reservation_evenement')) {
+		promotion_code_simple_actif_plugin('reservation')) {
 
 		$champs['spip_reservations']['code_promotion']=array(
 			'saisie' => 'input',//Type du champ (voir plugin Saisies)
