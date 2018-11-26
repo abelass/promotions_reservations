@@ -120,6 +120,23 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 	// Les événements sélectionnés
 	$evenements = _request('evenements');
 
+	// Si les déclinaisons sont actives on récupère les évenements via le prix
+	if ($plugin_declinaison = test_plugin_actif('declinaisons')) {
+		$evenements = array();
+
+		//id_request force le type des variable en id_
+		if ($id_prix_objet = $_REQUEST['id_objet_prix']) {
+			foreach ($id_prix_objet as $id_evenement => $declinaisons) {
+				foreach($declinaisons as $declinaison) {
+					if (!is_array($evenements[$id_evenement])) {
+						$evenements[$id_evenement] = array();
+					}
+					$evenements[$id_evenement][] = array('id_prix_objet' => (int)$declinaison);
+				}
+			}
+		}
+	}
+
 	// Les données de la promotion
 	$valeurs_promotion = $promotion['valeurs_promotion'];
 
@@ -132,7 +149,6 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 		'';
 
 	// promotion simple
-
 	if ($type_selection == 'simple' and count($evenements) >= $nombre_evenements)
 		$flux['data']['applicable'] = 'oui';
 	// promotion avec choix précis des évenements
@@ -144,22 +160,28 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 
 		// Si un nombre spécifique est indiqué, on le prend
 		$i = 0;
-
 		// Choix d'événements
 		if ($objet_promotion == 'evenement') {
 			foreach ($evenements as $id_evenement) {
-				if (in_array($id_evenement, $id_objet) and in_array($flux['data']['id_evenement'], $id_objet))
+				if (in_array($id_evenement, $id_objet) and in_array($flux['data']['id_evenement'], $id_objet)) {
 					$i++;
+				}
 			}
 		}
 
 		// Choix d'article
 		elseif ($objet_promotion == 'article') {
 			if (!isset($flux['data']['donnees_evenements'])) {
+				$id_evenements = $evenements;
+
+				if ($plugin_declinaison) {
+					$id_evenements = array_keys($evenements);
+				}
+
 				$sql = sql_select(
 						'spip_articles.id_article,spip_articles.id_trad,id_evenement',
 						'spip_evenements LEFT JOIN spip_articles ON spip_evenements.id_article=spip_articles.id_article',
-						'spip_evenements.id_evenement IN (' . implode(',', $evenements) . ')');
+						'spip_evenements.id_evenement IN (' . implode(',', $id_evenements) . ')');
 
 				$flux['data']['donnees_evenements'] = array();
 				while ($data = sql_fetch($sql)) {
