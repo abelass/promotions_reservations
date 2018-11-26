@@ -127,7 +127,9 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 	$nombre_evenements = isset($valeurs_promotion['nombre_evenements']) ? $valeurs_promotion['nombre_evenements'] : '';
 	$objet_promotion = isset($valeurs_promotion['objet_promotion']) ? $valeurs_promotion['objet_promotion'] : '';
 	$id_objet = isset($valeurs_promotion['id_objet']) ? $valeurs_promotion['id_objet'] : array();
-	$nombre_evenements_choix = isset($valeurs_promotion['nombre_evenements_choix']) ? $valeurs_promotion['nombre_evenements_choix'] : '';
+	$nombre_evenements_choix = isset($valeurs_promotion['nombre_evenements_choix']) ?
+		$valeurs_promotion['nombre_evenements_choix'] :
+		'';
 
 	// promotion simple
 
@@ -154,7 +156,10 @@ function promotions_multiples_evenements_action_dist($flux, $promotion) {
 		// Choix d'article
 		elseif ($objet_promotion == 'article') {
 			if (!isset($flux['data']['donnees_evenements'])) {
-				$sql = sql_select('spip_articles.id_article,spip_articles.id_trad,id_evenement', 'spip_evenements LEFT JOIN spip_articles ON spip_evenements.id_article=spip_articles.id_article', 'spip_evenements.id_evenement IN (' . implode(',', $evenements) . ')');
+				$sql = sql_select(
+						'spip_articles.id_article,spip_articles.id_trad,id_evenement',
+						'spip_evenements LEFT JOIN spip_articles ON spip_evenements.id_article=spip_articles.id_article',
+						'spip_evenements.id_evenement IN (' . implode(',', $evenements) . ')');
 
 				$flux['data']['donnees_evenements'] = array();
 				while ($data = sql_fetch($sql)) {
