@@ -3,7 +3,7 @@
  * Utilisations de pipelines par Promotions Réservations
  *
  * @plugin     Promotions Réservations
- * @copyright  2018
+ * @copyright  2018 - 2020
  * @author     Rainer Müller
  * @licence    GNU/GPL
  * @package    SPIP\Promotions_reservations\Pipelines
