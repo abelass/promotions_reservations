@@ -21,6 +21,7 @@ if (!defined('_ECRIRE_INC_VERSION'))
  */
 function promotions_reservations_declarer_champs_extras($champs = array()) {
 	include_spip('inc/promotion');
+	include_spip('base/abstract_sql');
 
 	if (function_exists('promotion_code_simple_actif_plugin') and
 		promotion_code_simple_actif_plugin('reservation')) {
