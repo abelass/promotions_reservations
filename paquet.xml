@@ -1,9 +1,9 @@
 <paquet
 	prefix="promotions_reservations"
 	categorie="communication"
-	version="1.0.4"
+	version="1.0.5"
 	etat="test"
-	compatibilite="[3.0.17;3.2.*]"
+	compatibilite="[3.0.17;4.0.*]"
 	logo="prive/themes/spip/images/promotions_reservations-64.png"
 	documentation=""
 	schema="1.0.1"
@@ -13,7 +13,7 @@
 	<!-- Des promotions pour les réservations -->
 
 	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs -->
-	<auteur lien='https://websimple.be'>Rainer Müller</auteur>
+	<auteur lien='https://web-simple.eu'>Rainer Müller</auteur>
 
 	<licence>GNU/GPL</licence>
 
